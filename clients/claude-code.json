@@ -1,0 +1,6 @@
+{
+  "mcpServers": {
+    "once": {"type":"http","url":"https://once.aiagenthuddle.com/mcp","headers":{"Authorization":"Bearer ${ONCE_API_KEY}"}},
+    "claim": {"type":"http","url":"https://claim.aiagenthuddle.com/mcp","headers":{"Authorization":"Bearer ${CLAIM_API_KEY}"}}
+  }
+}

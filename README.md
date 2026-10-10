@@ -33,6 +33,25 @@ Expected: A is GRANTED, B is DENIED, A releases, then B is GRANTED with a higher
 
 This is a **single-process demonstration**, not independent-worker evidence or a production downstream lock. The illustrative token comparison uses BigInt. Your real downstream system must compare tokens and commit atomically; an in-memory check is insufficient. Lease expiry does not terminate a worker. Read the [fencing guide](https://claim.aiagenthuddle.com/guides/leases-and-fencing.html).
 
+## Workflow examples
+
+**ONCE GitHub recovery:** set ONCE_API_KEY, ONCE_GITHUB_OPERATION_KEY (a separate stable key), GITHUB_REPOSITORY and a repository-restricted fine-grained GITHUB_TOKEN with Issues read/write. Set ONCE_ALLOW_GITHUB_WRITE=true for the initial run; this creates a real GitHub issue.
+
+```sh
+node --env-file=.env once/github-recovery.mjs
+```
+
+Set ONCE_ALLOW_GITHUB_WRITE=false and run again in a new process. It reads `.local/once-github.json`, inspects the saved operation and reconciles provider evidence without another create request. Preserve the checkpoint, key and inputs. If the create response was lost before its ID was saved, only replay the original logical request with the same key. Unresolved evidence stops without automatic retry. A normal successful run does not prove recovery from a real provider outage. Production workflows need durable checkpoint storage and access controls.
+
+**CLAIM independent workers:** keep both worker files and set CLAIM_API_KEY.
+
+```sh
+node --env-file=.env claim/two-workers.mjs
+```
+
+Two actual OS processes contend, renew and hand over a lease. A local broker accepts the newer token and rejects a stale worker's effect. Known grants are released during cleanup; unknown grants expire 60 seconds after acquisition or renewal. Interrupted execution can prevent cleanup. The broker is an in-memory demonstration: production downstream storage must compare tokens and commit atomically. Fencing does not provide per-write idempotency or stop an expired worker.
+
+See [client-specific setup](clients/README.md), [verification limits](clients/verification.md) and the [changelog](CHANGELOG.md).
 ## MCP connection
 
 Use Streamable HTTP and a client that supports private bearer-header configuration:
@@ -60,7 +79,7 @@ Examples use real API requests and consume a few request units. Synthetic tests 
 node --test test/*.test.mjs
 ```
 
-These checks use mocked responses: no credentials, network, payment or customer data. They cover uncertain ONCE outcomes, live-key rejection, no blind retry, CLAIM cleanup under unexpected grants, large integer fencing tokens and cleanup failures. They do not certify hosted service behaviour.
+These checks use mocked responses and local loopback HTTP: no external network, credentials, payment or customer data. They cover uncertain ONCE outcomes, live-key rejection, no blind retry, CLAIM cleanup under unexpected grants, large integer fencing tokens and cleanup failures. They do not certify hosted service behaviour.
 
 Support: accounts@aiagenthuddle.com. Include product, redacted HTTP error, operation/lease ID and UTC timestamp. Never share keys or sign-in links.
 

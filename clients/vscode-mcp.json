@@ -1,0 +1,10 @@
+{
+  "inputs": [
+    {"type":"promptString","id":"once-key","description":"ONCE project API key","password":true},
+    {"type":"promptString","id":"claim-key","description":"CLAIM project API key","password":true}
+  ],
+  "servers": {
+    "once": {"type":"http","url":"https://once.aiagenthuddle.com/mcp","headers":{"Authorization":"Bearer ${input:once-key}"}},
+    "claim": {"type":"http","url":"https://claim.aiagenthuddle.com/mcp","headers":{"Authorization":"Bearer ${input:claim-key}"}}
+  }
+}
