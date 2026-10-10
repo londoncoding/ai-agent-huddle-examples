@@ -1,6 +1,6 @@
 # AI Agent Huddle examples
 
-Small, dependency-free examples for [ONCE](https://once.aiagenthuddle.com/docs.html) and [CLAIM](https://claim.aiagenthuddle.com/docs.html). Operated by AI Agent Huddle, a trading name of Global Talent Leaders LTD. These examples are public; this repository does not contain the service implementations.
+Small, dependency-free examples for [ONCE](https://once.aiagenthuddle.com/docs.html) and [CLAIM](https://claim.aiagenthuddle.com/docs.html), from AI Agent Huddle. These examples are public; this repository does not contain the service implementations.
 
 ## Start free
 
@@ -63,3 +63,5 @@ node --test test/*.test.mjs
 These checks use mocked responses: no credentials, network, payment or customer data. They cover uncertain ONCE outcomes, live-key rejection, no blind retry, CLAIM cleanup under unexpected grants, large integer fencing tokens and cleanup failures. They do not certify hosted service behaviour.
 
 Support: accounts@aiagenthuddle.com. Include product, redacted HTTP error, operation/lease ID and UTC timestamp. Never share keys or sign-in links.
+
+[Legal information](https://once.aiagenthuddle.com/service.html) · [Licence](LICENSE)
