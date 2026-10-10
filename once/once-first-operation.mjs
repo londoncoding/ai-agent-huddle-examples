@@ -5,7 +5,7 @@ import { pathToFileURL } from 'node:url';
 export async function run({ env = process.env, fetcher = fetch, log = console.log } = {}) {
   const { ONCE_API_KEY, STRIPE_TEST_KEY, ONCE_OPERATION_KEY } = env;
   assert.ok(ONCE_API_KEY, 'Set ONCE_API_KEY in your private .env file.');
-  assert.match(STRIPE_TEST_KEY ?? '', /^(sk|rk)_test_/, 'Use a Stripe sandbox secret key, never a live key.');
+  assert.match(STRIPE_TEST_KEY ?? '', /^sk_test_/, 'Use a Stripe sandbox secret key starting sk_test_, never a live or restricted billing key.');
   assert.match(ONCE_OPERATION_KEY ?? '', /^\S{1,200}$/, 'Set a stable ONCE_OPERATION_KEY without spaces; keep it for reruns.');
   const origin = 'https://once.aiagenthuddle.com';
   async function request(path, method = 'GET', body) {
