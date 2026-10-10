@@ -2,6 +2,14 @@
 
 Small, dependency-free examples for [ONCE](https://once.aiagenthuddle.com/docs.html) and [CLAIM](https://claim.aiagenthuddle.com/docs.html), from AI Agent Huddle. These examples are public; this repository does not contain the service implementations.
 
+## When these tools help
+
+**ONCE:** your GitHub action timed out. Inspect the recorded operation and reconcile provider evidence before deciding whether another attempt is safe. Start with the GitHub workflow below; unresolved evidence never authorises a blind retry.
+
+**CLAIM:** two agent workers want the same job. Coordinate lease ownership and use increasing fencing tokens to reject stale writes in downstream storage. Start with the two-worker example below; the storage must enforce fencing atomically.
+
+Both have free usage for trying the workflow. Existing provider idempotency or your database's own locking may already solve your problem; evaluate the additional recovery or coordination value before subscribing.
+
 ## Start free
 
 1. Use Node.js 22 or newer. Clone/download this repository. No npm install is needed.
