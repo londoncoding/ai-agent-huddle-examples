@@ -1,0 +1,47 @@
+name: Publish reviewed SDK
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: npm-sdk-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - run: node scripts/check-release.mjs
+      - run: npm ci --ignore-scripts
+      - run: npm run build
+      - run: npm test
+      - run: npm run test:types
+      - run: npm run verify:packages
+  publish:
+    needs: verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: npm-release
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - run: npm install --global npm@11.15.0 --ignore-scripts
+      # No compiler or workspace dependencies run in the OIDC-enabled job.
+      - run: npm run verify:packages
+      - name: Publish the inspected tarball using npm OIDC
+        run: npm run release:publish

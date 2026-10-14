@@ -6,6 +6,18 @@
     "node": ">=22"
   },
   "scripts": {
-    "test": "node --test test/*.test.mjs"
+    "build": "node scripts/build-sdk.mjs",
+    "test": "node --test test/*.test.mjs",
+    "test:types": "tsc --noEmit --strict --target ES2022 --module NodeNext --moduleResolution NodeNext test/sdk-types.mts",
+    "scan": "node scripts/scan-public.mjs",
+    "verify:packages": "node scripts/verify-packages.mjs",
+    "release:publish": "node scripts/publish-sdk.mjs"
+  },
+  "workspaces": [
+    "packages/once",
+    "packages/claim"
+  ],
+  "devDependencies": {
+    "typescript": "7.0.2"
   }
 }

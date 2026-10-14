@@ -1,5 +1,11 @@
 # Changelog
 
+## SDK source preparation (unreleased)
+
+- Added `@ai-agent-huddle/once` and `@ai-agent-huddle/claim` HTTP client workspaces with TypeScript declarations, no runtime dependencies, safe errors, bounded response reading, timeout/abort support and explicit mutation methods.
+- Added SDK examples, runtime and type regression checks, public-content scanning and verification of actual seven-file npm tarballs.
+- Prepared a manually dispatched, protected-environment npm OIDC release workflow with pinned actions. npm publication and owner setup remain separate release actions.
+
 ## 2026-10-10 — workflow examples and client configuration
 
 - ONCE GitHub workflow persists its logical request before dispatch, saves the operation ID and resumes inspection/reconciliation from a new process. GitHub issue creation is a real write and needs an explicit example setting. Unresolved outcomes never trigger an automatic retry.

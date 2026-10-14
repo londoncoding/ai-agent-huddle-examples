@@ -1,0 +1,17 @@
+{
+  "name": "@ai-agent-huddle/claim",
+  "version": "0.1.0",
+  "description": "Typed HTTP client for AI Agent Huddle CLAIM leases and fencing",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
+  "files": ["dist", "README.md", "LICENSE"],
+  "engines": { "node": ">=22" },
+  "license": "MIT",
+  "repository": { "type": "git", "url": "git+https://github.com/londoncoding/ai-agent-huddle-examples.git", "directory": "packages/claim" },
+  "homepage": "https://claim.aiagenthuddle.com/docs.html",
+  "bugs": { "url": "https://github.com/londoncoding/ai-agent-huddle-examples/issues" },
+  "publishConfig": { "access": "public", "registry": "https://registry.npmjs.org/" },
+  "keywords": ["ai-agent-huddle", "agents", "leases", "fencing", "sdk"]
+}

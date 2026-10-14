@@ -2,6 +2,8 @@
 
 Small, dependency-free examples for [ONCE](https://once.aiagenthuddle.com/docs.html) and [CLAIM](https://claim.aiagenthuddle.com/docs.html), from AI Agent Huddle. These examples are public; this repository does not contain the service implementations.
 
+Typed HTTP SDK source is also available in [`@ai-agent-huddle/once`](packages/once/README.md) and [`@ai-agent-huddle/claim`](packages/claim/README.md), with runnable [SDK examples](sdk-examples). SDKs support Node.js 22+ ESM, have no runtime dependencies and never automatically retry mutations. See [package verification and release setup](SDK_RELEASE.md); package source does not imply an npm version has been published.
+
 ## When these tools help
 
 **ONCE:** your GitHub action timed out. Inspect the recorded operation and reconcile provider evidence before deciding whether another attempt is safe. Start with the GitHub workflow below; unresolved evidence never authorises a blind retry.

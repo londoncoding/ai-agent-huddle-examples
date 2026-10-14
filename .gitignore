@@ -3,3 +3,6 @@
 !.env.example
 node_modules/
 .local/
+packages/*/dist/
+work/
+*.tgz
