@@ -1,6 +1,6 @@
 # @ai-agent-huddle/claim
 
-Typed, dependency-free HTTP client for [CLAIM by AI Agent Huddle](https://claim.aiagenthuddle.com/docs.html). Node.js 22+, ESM. This package contains public client code; it contains no service implementation.
+Typed, dependency-free HTTP client for [CLAIM by AI Agent Huddle](https://claim.aiagenthuddle.com/docs.html?utm_source=npm_claim). Node.js 22+, ESM. This package contains public client code; it contains no service implementation.
 
 ```sh
 npm install @ai-agent-huddle/claim

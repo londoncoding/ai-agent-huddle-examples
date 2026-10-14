@@ -1,6 +1,6 @@
 # @ai-agent-huddle/once
 
-Typed, dependency-free HTTP client for [ONCE by AI Agent Huddle](https://once.aiagenthuddle.com/docs.html). Node.js 22+, ESM. This package contains public client code; it contains no service implementation.
+Typed, dependency-free HTTP client for [ONCE by AI Agent Huddle](https://once.aiagenthuddle.com/docs.html?utm_source=npm_once). Node.js 22+, ESM. This package contains public client code; it contains no service implementation.
 
 ```sh
 npm install @ai-agent-huddle/once
