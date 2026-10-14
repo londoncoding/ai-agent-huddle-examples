@@ -4,6 +4,14 @@ Small, dependency-free examples for [ONCE](https://once.aiagenthuddle.com/docs.h
 
 Typed HTTP SDK source is also available in [`@ai-agent-huddle/once`](packages/once/README.md) and [`@ai-agent-huddle/claim`](packages/claim/README.md), with runnable [SDK examples](sdk-examples). SDKs support Node.js 22+ ESM, have no runtime dependencies and never automatically retry mutations. See [package verification and release setup](SDK_RELEASE.md); both clients are published on npm at version 0.1.1. Install with `npm install @ai-agent-huddle/once @ai-agent-huddle/claim`.
 
+## Client and workflow integrations
+
+- [Cursor, Claude Code and VS Code configuration](clients): project-key placeholders for authenticated MCP discovery. Default ONCE connections omit provider credentials.
+- [n8n CLAIM workflow](integrations/n8n): an importable acquire/branch/release demonstration, with denial and uncertainty handling. The example performs no protected write.
+- [DeepAgents and LangChain CLAIM tools](integrations/langchain): an actual framework tool loop driven by a deterministic offline model and synthetic HTTP responses. No paid model API or hosted-service validation is implied.
+
+Each integration documents its setup, verification and safety limits. Production protected storage must enforce fencing atomically.
+
 ## When these tools help
 
 **ONCE:** your GitHub action timed out. Inspect the recorded operation and reconcile provider evidence before deciding whether another attempt is safe. Start with the GitHub workflow below; unresolved evidence never authorises a blind retry.

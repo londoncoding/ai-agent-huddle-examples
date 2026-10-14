@@ -1,5 +1,11 @@
 # MCP client setup
 
+## Cursor
+
+Merge `cursor-mcp.json` into `.cursor/mcp.json` in your own project. Set ONCE_API_KEY and CLAIM_API_KEY in the environment inherited by Cursor before starting it; a project `.env` is not loaded for these remote connections. The template contains variable names only, never keys. Review the exact HTTPS endpoints and tool calls before approving them. The default ONCE connection omits provider credentials, so GitHub/Stripe actions require additional private provider-header configuration from the product reference. Expect four ONCE tools and five CLAIM tools after authenticated discovery. The configuration follows official Cursor documentation; interactive IDE discovery is not certified by our offline checks.
+
+Source: https://cursor.com/docs/mcp (remote headers and config interpolation).
+
 ## Claude Code
 
 Copy `claude-code.json` to `.mcp.json` in your own project (merge entries if one already exists). Set ONCE_API_KEY and CLAIM_API_KEY in the terminal environment before starting Claude Code. A Node `.env` file is not automatically loaded by Claude Code. Do not paste keys into a committed JSON file.
