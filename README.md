@@ -2,7 +2,7 @@
 
 Small, dependency-free examples for [ONCE](https://once.aiagenthuddle.com/docs.html) and [CLAIM](https://claim.aiagenthuddle.com/docs.html), from AI Agent Huddle. These examples are public; this repository does not contain the service implementations.
 
-Typed HTTP SDK source is also available in [`@ai-agent-huddle/once`](packages/once/README.md) and [`@ai-agent-huddle/claim`](packages/claim/README.md), with runnable [SDK examples](sdk-examples). SDKs support Node.js 22+ ESM, have no runtime dependencies and never automatically retry mutations. See [package verification and release setup](SDK_RELEASE.md); both clients are published on npm at version 0.1.0. Install with `npm install @ai-agent-huddle/once @ai-agent-huddle/claim`.
+Typed HTTP SDK source is also available in [`@ai-agent-huddle/once`](packages/once/README.md) and [`@ai-agent-huddle/claim`](packages/claim/README.md), with runnable [SDK examples](sdk-examples). SDKs support Node.js 22+ ESM, have no runtime dependencies and never automatically retry mutations. See [package verification and release setup](SDK_RELEASE.md); both clients are published on npm at version 0.1.1. Install with `npm install @ai-agent-huddle/once @ai-agent-huddle/claim`.
 
 ## When these tools help
 
